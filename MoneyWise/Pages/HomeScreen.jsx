@@ -1,12 +1,16 @@
+import { useContext } from "react";
 import React from "react";
+import { ThemeContext, ThemeProvider } from "../ThemeContext";
 import { View, StyleSheet,Text,TouchableOpacity, Image, ScrollView } from "react-native";
 import Card from "../Components/Card";
 
 
 export default function HomeScreen(){
+    const {colors} = useContext(ThemeContext);
+
     return(
         <ScrollView>
-        <View style={styles.ovd}>
+        <View style={[styles.ovd, {backgroundColor: colors.background}]}>
             <View style={styles.container}>
                 <View>
                     <Image source={require('../assets/profile.png')} />
@@ -14,10 +18,10 @@ export default function HomeScreen(){
                 <View style={styles.secondary}>
                 <View style={styles.texters}>
                     <Text style={styles.wlk}>Welcome back,</Text>
-                    <Text style={styles.wlk1}>Muiz Bello</Text>
+                    <Text style={[styles.wlk1, {color: colors.text}]}>Muiz Bello</Text>
                 </View>
-                <View style={styles.search}>
-                    <Image style={styles.glass} source={require('../assets/search.png')}/>
+                <View style={[styles.search,{backgroundColor: colors.tabbar}]}>
+                    <Image style={[styles.glass,{filter: colors.filter}]} source={require('../assets/search.png')}/>
                 </View>
                 </View>
             </View>
@@ -26,33 +30,33 @@ export default function HomeScreen(){
             </View>
             <View style={styles.flex}>
                 <View>
-                    <View style={styles.bck}>
+                <View style={[styles.bck,{backgroundColor: colors.tabbar}]}>
                         <Image source={require('../assets/send.png')} />
                     </View>
-                    <Text> Send</Text>
+                    <Text style={{color: colors.tabbar1}}> Send</Text>
                 </View>
                 <View>
-                    <View style={styles.bck}>
+                    <View style={[styles.bck,{backgroundColor: colors.tabbar}]}>
                         <Image source={require('../assets/recieve.png')} />
                     </View>
-                    <Text>Receive</Text>
+                    <Text style={{color: colors.tabbar1}}>Receive</Text>
                 </View>
                 <View>
-                    <View style={styles.bck}>
+                <View style={[styles.bck,{backgroundColor: colors.tabbar}]}>
                         <Image source={require('../assets/loan.png')} />
                     </View>
-                    <Text>  Loan</Text>
+                    <Text style={{color: colors.tabbar1}}>  Loan</Text>
                 </View>
                 <View>
-                    <View style={styles.bck}>
+                <View style={[styles.bck,{backgroundColor: colors.tabbar}]}>
                         <Image source={require('../assets/topUp.png')} />
                     </View>
-                    <Text>Top Up</Text>
+                    <Text style={{color: colors.tabbar1}}>Top Up</Text>
                 </View>
                 
             </View>
             <View style={styles.huj}>
-                <Text style={styles.huj1}>Transactions</Text>
+                <Text style={[styles.huj1,{color: colors.text}]}>Transactions</Text>
                 <Text style={styles.huj2}>See all</Text>
             </View>
             <View>
@@ -71,13 +75,13 @@ export default function HomeScreen(){
                 <Card 
                 company='Money Transfer'
                 industry='Transaction'
-                amount= '$300'
+                amount1= '$300.00'
                 image={require('../assets/moneyTransfer.png')}
                 />
                 <Card 
-                company='Groceru'
+                company='Grocery'
                 industry='Entertainment'
-                amount= '-$88'
+                amount= '-$88.00'
                 image={require('../assets/grocery.png')}
                 />
                 <Card 
@@ -89,7 +93,7 @@ export default function HomeScreen(){
                 <Card 
                 company='Money Transfer'
                 industry='Transaction'
-                amount= '$999'
+                amount1= '$999.00'
                 image={require('../assets/moneyTransfer.png')}
                 />
                 <Card 
@@ -118,8 +122,7 @@ const styles = StyleSheet.create({
         margin: 22,
     },
     ovd:{
-        margin: 8,
-        backgroundColor: '#fff',
+        marginTop: 28,
     },
     card:{
             alignSelf:'center',
@@ -167,7 +170,7 @@ const styles = StyleSheet.create({
     },
     huj1:{
         fontSize: 18,
-        marginRight: 8,
+        marginLeft: 8,
     },
     huj2:{
         color: '#4169E1',
