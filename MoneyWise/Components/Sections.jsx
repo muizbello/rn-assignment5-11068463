@@ -13,7 +13,7 @@ export default function Section({sectionname}){
             <View style={styles.carddd}>
                 <View style={styles.holder}>
                     {sectionname && <Text style={[styles.head, {color: colors.text}]}>{sectionname}</Text>}
-                    <Image style={[styles.point, {filter: colors.filter}]} source={require('../assets/arr1.png')}/>
+                    <Image style={[styles.point, isDarkTheme && {tintColor: 'white'},{filter: colors.filter}]} source={require('../assets/arr1.png')}/>
                 </View>
                 <View style={styles.und}>
 

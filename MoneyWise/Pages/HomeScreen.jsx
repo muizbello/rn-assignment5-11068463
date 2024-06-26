@@ -6,7 +6,7 @@ import Card from "../Components/Card";
 
 
 export default function HomeScreen(){
-    const {colors} = useContext(ThemeContext);
+    const {colors, isDarkTheme} = useContext(ThemeContext);
 
     return(
         <ScrollView>
@@ -21,7 +21,7 @@ export default function HomeScreen(){
                     <Text style={[styles.wlk1, {color: colors.text}]}>Muiz Bello</Text>
                 </View>
                 <View style={[styles.search,{backgroundColor: colors.tabbar}]}>
-                    <Image style={[styles.glass,{filter: colors.filter}]} source={require('../assets/search.png')}/>
+                    <Image style={[styles.glass, isDarkTheme && {tintColor: 'white'},{filter: colors.filter}]} source={require('../assets/search.png')}/>
                 </View>
                 </View>
             </View>
@@ -31,25 +31,25 @@ export default function HomeScreen(){
             <View style={styles.flex}>
                 <View>
                 <View style={[styles.bck,{backgroundColor: colors.tabbar}]}>
-                        <Image source={require('../assets/send.png')} />
+                        <Image style={[isDarkTheme && {tintColor: 'white'}]} source={require('../assets/send.png')} />
                     </View>
                     <Text style={{color: colors.tabbar1}}> Send</Text>
                 </View>
                 <View>
                     <View style={[styles.bck,{backgroundColor: colors.tabbar}]}>
-                        <Image source={require('../assets/recieve.png')} />
+                        <Image style={[isDarkTheme && {tintColor: 'white'}]} source={require('../assets/recieve.png')} />
                     </View>
                     <Text style={{color: colors.tabbar1}}>Receive</Text>
                 </View>
                 <View>
                 <View style={[styles.bck,{backgroundColor: colors.tabbar}]}>
-                        <Image source={require('../assets/loan.png')} />
+                        <Image style={[isDarkTheme && {tintColor: 'white'}]} source={require('../assets/loan.png')} />
                     </View>
                     <Text style={{color: colors.tabbar1}}>  Loan</Text>
                 </View>
                 <View>
                 <View style={[styles.bck,{backgroundColor: colors.tabbar}]}>
-                        <Image source={require('../assets/topUp.png')} />
+                        <Image style={[isDarkTheme && {tintColor: 'white'}]} source={require('../assets/topUp.png')} />
                     </View>
                     <Text style={{color: colors.tabbar1}}>Top Up</Text>
                 </View>
@@ -64,7 +64,7 @@ export default function HomeScreen(){
                 company='Apple Store'
                 industry='Entertainment'
                 amount= '-$5.99'
-                image={require('../assets/apple.png')}
+                image1={require('../assets/apple.png')}
                 />
                 <Card 
                 company='Spotify'
@@ -76,7 +76,7 @@ export default function HomeScreen(){
                 company='Money Transfer'
                 industry='Transaction'
                 amount1= '$300.00'
-                image={require('../assets/moneyTransfer.png')}
+                image1={require('../assets/moneyTransfer.png')}
                 />
                 <Card 
                 company='Grocery'
@@ -94,13 +94,13 @@ export default function HomeScreen(){
                 company='Money Transfer'
                 industry='Transaction'
                 amount1= '$999.00'
-                image={require('../assets/moneyTransfer.png')}
+                image1={require('../assets/moneyTransfer.png')}
                 />
                 <Card 
                 company='Apple TV'
                 industry='Entertainment'
                 amount= '-$66.99'
-                image={require('../assets/apple.png')}
+                image1={require('../assets/apple.png')}
                 />
             </View>
         </View>

@@ -4,12 +4,13 @@ import React from 'react';
 import { View, ScrollView, Text, StyleSheet, Image } from 'react-native';
 
 
-export default function Card({ company, industry, amount,amount1, image}){
-  const {colors} = useContext(ThemeContext);
+export default function Card({ company, industry, amount,amount1, image, image1}){
+  const {colors,isDarkTheme} = useContext(ThemeContext);
     return(
         <View style={[styles.card, {backgroundColor: colors.background}]}>
             <View style={[styles.fam,{backgroundColor:colors.tabbar}]}>
-                {image && <Image source={image} style={[styles.image, {filter: colors.filter}]}  />}
+                {image && <Image source={image} style={[styles.image,{filter: colors.filter}]}  />}
+                {image1 && <Image source={image1} style={[styles.image, isDarkTheme && {tintColor: 'white'},{filter: colors.filter}]}  />}
               </View>
           <View style={styles.holdx}>
             <View style={styles.mdx}>
